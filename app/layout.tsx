@@ -1,15 +1,29 @@
 import './css/style.css'
 
-import { Inter, Architects_Daughter } from 'next/font/google'
+import { Inter, Architects_Daughter, DM_Sans, Nova_Mono } from 'next/font/google'
 
 import Header from '@/components/ui/header'
-import Banner from '@/components/banner'
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap'
 })
+
+
+const dm_sans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+  display: 'swap'
+})
+
+const nova_mono = Nova_Mono({
+  subsets: ['latin'],
+  variable: '--font-nova-mono',
+  display: 'swap',
+  weight: '400',
+})
+
 
 const architects_daughter = Architects_Daughter({
   subsets: ['latin'],
@@ -30,11 +44,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${architects_daughter.variable} font-inter antialiased bg-gray-900 text-gray-200 tracking-tight`}>
+      <body className={`${inter.variable} ${architects_daughter.variable} ${dm_sans.variable}  ${nova_mono.variable} font-inter antialiased bg-gray-900 text-gray-200 tracking-tight`}>
         <div className="flex flex-col min-h-screen overflow-hidden">
-          <Header />
+          {/* <Header /> */}
           {children}
-          {/* <Banner /> */}
         </div>
       </body>
     </html>

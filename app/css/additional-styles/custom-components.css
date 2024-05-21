@@ -1,0 +1,242 @@
+
+/* BUTTON GLOW */
+
+
+:root {
+    --primary-color: #5b5b5b;
+    --secondary-color: #888888;
+	--background-color: #ffffff;
+
+	--brand-color: #4e62b9;
+
+	--gradient-1: #8DA7F4;
+	--gradient-2: #F9ABB7;
+	--gradient-3: #FFCB51;
+
+
+    --primary-blue: #3F8CFF;
+    --primary-blue-dark: #4361ee;
+    --text-white: #F7FAFF;
+    --text-gray: #B5B8BC;
+    --text-color: #303651;
+    --text-color-neutral: #697089;
+    --card-bg: #222429;
+    --bg: #141419;
+
+}
+
+.colored-text{
+	background: #151515;
+	background: linear-gradient(to right, var(--gradient-1) 15%, var(--gradient-2) 50%, var(--gradient-3) 85%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+
+
+.button-glow {
+    --border-radius: 0.5rem;
+    --btn-bg: #5d5dff;
+    --glow-size: 0.5rem;
+
+    min-width: 10rem;
+    min-height: 3rem;
+    text-decoration: none;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: relative;
+    z-index: 0;
+    border-radius: var(--border-radius);
+    transition: all 0.5s;
+    gap: 0.5rem;
+    background: var(--btn-bg);
+}
+
+.button-glow:before {
+    content: '';
+    background: linear-gradient(to right, var(--gradient-1), var(--gradient-2), var(--gradient-3), var(--gradient-1));
+
+    position: absolute;
+    background-size: 300%;
+    z-index: -1;
+    filter: blur(var(--glow-size));
+    width: calc(100% + var(--glow-size));
+    height: calc(100% + var(--glow-size));
+    opacity: 0;
+    border-radius: var(--border-radius);
+    animation: glow 10s alternate infinite;
+    transition: opacity 0.5s linear;
+}
+
+.button-glow:active {
+    background: var(--btn-bg);
+}
+
+.button-glow:hover:before {
+    opacity: 1;
+}
+
+.button-glow:hover {
+    color: white !important;
+}
+
+.button-glow:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--btn-bg);
+    left: 0;
+    top: 0;
+    border-radius: var(--border-radius);
+}
+
+
+@keyframes glow {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 300% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* PRICES */
+
+
+.pricing-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem 2rem;
+  }
+  
+  .pricing-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    max-width: 25rem;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    color: var(--text-gray);
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .pricing-card:hover {
+    transform: translateY(-2rem);
+  }
+  
+  .pricing-card--primary {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+  
+  .pricing-card__price {
+    color: var(--text-white);
+    font-weight: 700;
+    flex-wrap: wrap;
+    font-size: 2rem;
+  }
+  
+  .pricing-card__banner {
+    height: 1rem;
+    width: 100%;
+    position: absolute;
+    color: white;
+    top: -2.5rem;
+  }
+  
+  .pricing-card__banner+.pricing-card {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+  
+  .pricing-card__price--original {
+    color: var(--text-gray);
+    font-weight: 500;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+  
+  .pricing-card>h3 {
+    margin: 0;
+    font-weight: 700;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--text-white);
+  }
+  
+  
+  .pricing-card>.enroll {
+    display: block;
+    width: 100%;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    border-radius: 0.5rem;
+    color: var(--text-white);
+    margin-top: auto;
+    text-decoration: none;
+    letter-spacing: 0.75px;
+    border: 1px solid var(--primary-blue);
+    background: var(--primary-blue);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .pricing-card>.enroll:hover {
+    background: var(--primary-blue-dark);
+  }
+  
+  .pricing-card__banner {
+    width: 100%;
+    min-height: 2.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    background: var(--primary-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  
+  .pricing-card>ul {
+    width: 100%;
+    display: flex;
+    margin-top: 2.5rem;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .pricing-card>ul>li {
+    position: relative;
+    font-weight: 500;
+    list-style-type: none;
+    font-size: 0.875rem;
+  }
+  
+  .pricing-card>ul>li:before {
+    content: "";
+    position: absolute;
+    top: -0.125rem;
+    left: -2.25rem;
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+  }
+  
+  

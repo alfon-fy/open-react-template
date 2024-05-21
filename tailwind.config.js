@@ -37,8 +37,10 @@ module.exports = {
         '1/1': '100%',
       },
       fontFamily: {
-        inter: ['var(--font-inter)', 'sans-serif'],
-        'architects-daughter': ['var(--font-architects-daughter)', 'sans-serif']
+        inter: ['var(--font-dm-sans)', 'sans-serif'],
+        // 'architects-daughter': ['var(--font-architects-daughter)', 'sans-serif'],
+        'nova-mono': ['var(--font-nova-mono)', 'sans-serif'],
+
       },
       fontSize: {
         xs: '0.75rem',
